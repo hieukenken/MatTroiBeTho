@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Linq;
-using System.Web;
-//Them namespace
+using System.Text;
+using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
-namespace Project_20210327_SIUD_ADO.Models
+namespace WebProgramingMatTroiBeTho.Models.Models
 {
     public class Database
     {
