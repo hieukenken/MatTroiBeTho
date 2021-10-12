@@ -42,3 +42,17 @@ Update BaiViet
 set TinhTrang = 0
 where IDBaiViet = @ID
 go
+
+Create table TaiKhoan(
+	MaTK int primary key not null,
+	TenDangNhap nvarchar(50) not null,
+	MatKhau varchar(50) not null,
+	LoaiTaiKhoan int not null,
+	TinhTrang bit not null
+)
+Create table LoaiTaiKhoan(
+	ID int primary key not null,
+	LoaiTaiKhoan nvarchar(50),
+	TinhTrang bit
+)
+select * from BaiViet
