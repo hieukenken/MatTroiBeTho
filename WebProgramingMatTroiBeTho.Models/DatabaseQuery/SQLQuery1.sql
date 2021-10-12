@@ -56,3 +56,46 @@ Create table LoaiTaiKhoan(
 	TinhTrang bit
 )
 select * from BaiViet
+go
+--login check
+
+Create PROC [dbo].[SPH_Account_Login_Admin]
+    @UserName VARCHAR(20) ,
+    @PassWord VARCHAR(20)
+AS
+    BEGIN
+        DECLARE @count INT;
+        DECLARE @res BIT;
+		Declare @LoaiTK int;
+        SELECT  @count = COUNT(*)
+        FROM    TaiKhoan
+        WHERE   TaiKhoan.TenDangNhap = @UserName
+                AND TaiKhoan.MatKhau = @PassWord AND TaiKhoan.LoaiTaiKhoan = 1;
+        IF @count > 0
+            SET @res = 1;
+        ELSE
+            SET @res = 0;
+        SELECT  @res;	
+    END;
+GO
+
+Create PROC [dbo].[SPH_Account_Login_User]
+    @UserName VARCHAR(20) ,
+    @PassWord VARCHAR(20)
+AS
+    BEGIN
+        DECLARE @count INT;
+        DECLARE @res BIT;
+		Declare @LoaiTK int;
+        SELECT  @count = COUNT(*)
+        FROM    TaiKhoan
+        WHERE   TaiKhoan.TenDangNhap = @UserName
+                AND TaiKhoan.MatKhau = @PassWord AND TaiKhoan.LoaiTaiKhoan = 2;
+        IF @count > 0
+            SET @res = 1;
+        ELSE
+            SET @res = 0;
+        SELECT  @res;	
+    END;
+GO
+exec SPH_Account_Login_Admin "hieukenken7777","110401"
