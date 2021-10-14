@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Data
+namespace WebProgramingMatTroiBeTho.WebApp.Models
 {
-    public class AccountModel
+    public class AccountModelLogin
     {
         public string UserName { get; set; }
         public string PassWord { get; set; }

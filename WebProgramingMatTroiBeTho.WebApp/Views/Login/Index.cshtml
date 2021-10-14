@@ -1,0 +1,62 @@
+﻿@using System.Web;
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+@model WebProgramingMatTroiBeTho.WebApp.Models.AccountModelLogin
+<!DOCTYPE html>
+<html style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login - Brand</title>
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="~/assets/css/Article-List.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="~/assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="~/assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="~/assets/css/Simple-Slider.css">
+</head>
+<body class="bg-gradient-primary">
+    <section class="register-photo" style="height: 941px; background: url(&quot;../assets/img/3RVDEnR.png&quot;) center / cover no-repeat; padding: 160px 0px;">
+        <div class="form-container" style="margin-top: 77px;">
+            <div class="image-holder" style="background: url(&quot;../assets/img/Cafe-ở-Sài-Gòn_-người-Sài-Gòn-mến-mời_.jpg&quot;) top / cover;"></div>
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @style = "background: rgba(3,1,1,0.63);" }))
+            {
+                @Html.AntiForgeryToken()
+                <h2 class="text-center"><strong>Đăng nhập</strong></h2>
+                <div class="mb-3">
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placehoder = "Nhập tài khoản...", @name = "UserName", @autofocus = "autofocus", @style = "background: rgba(247,249,252,0)" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.TextBoxFor(model => model.PassWord, new { @class = "form-control", @placehoder = "Password", @name = "PassWord", @type = "password", value = "", @style = "background: rgba(247,249,252,0)" })
+                </div>
+                <div class="mb-3"></div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        @Html.ValidationSummary(true, null, new { @style = "color:#b30000; font-size:13px;" })
+                        <label class="form-check-label">
+                            @Html.CheckBoxFor(model => model.RememberMe, new { @class = "custom-control-input", name = "remember", type = "checkbox", vlaue = "Remember me", id = "customCheck", @style = "background: rgba(247,249,252,0)" })
+
+                            Nhớ mật khẩu
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Đăng nhập</button></div><a class="already" href="@Url.Action("Index", "Home")">Quên mật khẩu? Đăng ký.</a>
+            }
+        </div>
+    </section>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/Simple-Slider.js"></script>
+    <script src="~/assets/js/theme.js"></script>
+</body>
+</html>

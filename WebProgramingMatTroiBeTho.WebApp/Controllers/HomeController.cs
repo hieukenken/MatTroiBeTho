@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebProgramingMatTroiBeTho.Models.Models;
-using WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Commons;
+ using WebProgramingMatTroiBeTho.WebApp.Commons;
 
 namespace WebProgramingMatTroiBeTho.WebApp.Controllers
 {
@@ -17,13 +17,13 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            if (SessionHelper.GetSession() != null) {
+            if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="AD") {
                 var baiviet = new BaiVietDB().GetBaiViet(ref err);
                 return View(baiviet);
             }
             else
             {
-               return RedirectToAction("Index", "Login", new { Area = "Admin" });
+                return RedirectToAction("Index", "Login");
             }
             
         }
