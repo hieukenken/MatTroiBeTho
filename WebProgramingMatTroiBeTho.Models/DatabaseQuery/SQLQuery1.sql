@@ -101,3 +101,14 @@ GO
 exec SPH_Account_Login_Admin "hieukenken7777","110401"
 go
 go
+---Thêm bảng khách hàng
+create table KhachHang(
+        MaKH char(10),
+        TenKH nvarchar(50),
+        GioiTinh bit,
+        DiaChi nvarchar(200),
+        SDT int ,
+        Email nvarchar(50),
+        LoaiTaiKhoan int,
+        TinhTrang bit
+)
