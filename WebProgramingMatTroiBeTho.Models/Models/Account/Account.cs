@@ -10,5 +10,8 @@ namespace WebProgramingMatTroiBeTho.Models.Models.Account
     {
         public string UserName { get; set; }
         public string PassWord { get; set; }
+        public string CheckPassword { get; set; }
+        public string NameUser { get; set; }
+        public string TypeUser { get; set; }
     }
 }

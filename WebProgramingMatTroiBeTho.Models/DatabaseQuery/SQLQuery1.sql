@@ -100,6 +100,10 @@ AS
 GO
 exec SPH_Account_Login_Admin "hieukenken7777","110401"
 go
+
+
+
+
 go
 ---Thêm bảng khách hàng
 create table KhachHang(
