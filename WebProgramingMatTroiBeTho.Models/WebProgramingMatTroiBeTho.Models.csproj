@@ -53,6 +53,73 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DatabaseQuery\SQLQuery1.sql" />
+    <Content Include="Web design\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Web design\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Web design\assets\css\Article-List.css" />
+    <Content Include="Web design\assets\css\Login-Form-Dark.css" />
+    <Content Include="Web design\assets\css\Navigation-with-Button.css" />
+    <Content Include="Web design\assets\css\Registration-Form-with-Photo.css" />
+    <Content Include="Web design\assets\css\Simple-Slider.css" />
+    <Content Include="Web design\assets\fonts\fa-brands-400.svg" />
+    <Content Include="Web design\assets\fonts\fa-regular-400.svg" />
+    <Content Include="Web design\assets\fonts\fa-solid-900.svg" />
+    <Content Include="Web design\assets\fonts\font-awesome.min.css" />
+    <Content Include="Web design\assets\fonts\fontawesome-all.min.css" />
+    <Content Include="Web design\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Web design\assets\fonts\fontawesome5-overrides.min.css" />
+    <Content Include="Web design\assets\fonts\ionicons.min.css" />
+    <Content Include="Web design\assets\fonts\ionicons.svg" />
+    <Content Include="Web design\assets\img\1633765857872.jpg" />
+    <Content Include="Web design\assets\img\1633766556048.jpg" />
+    <Content Include="Web design\assets\img\28f9f051-e108-4e88-b3d4-0325e56c2a8a.jpg" />
+    <Content Include="Web design\assets\img\3RVDEnR.png" />
+    <Content Include="Web design\assets\img\avatars\avatar1.jpeg" />
+    <Content Include="Web design\assets\img\avatars\avatar2.jpeg" />
+    <Content Include="Web design\assets\img\avatars\avatar3.jpeg" />
+    <Content Include="Web design\assets\img\avatars\avatar4.jpeg" />
+    <Content Include="Web design\assets\img\avatars\avatar5.jpeg" />
+    <Content Include="Web design\assets\img\building.jpg" />
+    <Content Include="Web design\assets\img\Cafe-ở-Sài-Gòn_-người-Sài-Gòn-mến-mời_.jpg" />
+    <Content Include="Web design\assets\img\d09166c85e1f3d7303bab4231e5a894c.jpg" />
+    <Content Include="Web design\assets\img\desk.jpg" />
+    <Content Include="Web design\assets\img\dogs\image2.jpeg" />
+    <Content Include="Web design\assets\img\dogs\image3.jpeg" />
+    <Content Include="Web design\assets\img\Download-premium-image-of-A-cup-of-coffee-53253.jpg" />
+    <Content Include="Web design\assets\img\loft.jpg" />
+    <Content Include="Web design\assets\img\meeting.jpg" />
+    <Content Include="Web design\assets\img\quan-cafe-da-nang-10.1.jpg" />
+    <Content Include="Web design\assets\img\star-sky.jpg" />
+    <Content Include="Web design\assets\js\Simple-Slider.js" />
+    <Content Include="Web design\assets\js\theme.js" />
+    <Content Include="Web design\index.html" />
+    <Content Include="Web design\login.html" />
+    <Content Include="Web design\loginForm.html" />
+    <Content Include="Web design\profile.html" />
+    <Content Include="Web design\register.html" />
+    <Content Include="Web design\singup.html" />
+    <Content Include="Web design\table.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web design\assets\fonts\fa-brands-400.eot" />
+    <None Include="Web design\assets\fonts\fa-brands-400.ttf" />
+    <None Include="Web design\assets\fonts\fa-brands-400.woff" />
+    <None Include="Web design\assets\fonts\fa-brands-400.woff2" />
+    <None Include="Web design\assets\fonts\fa-regular-400.eot" />
+    <None Include="Web design\assets\fonts\fa-regular-400.ttf" />
+    <None Include="Web design\assets\fonts\fa-regular-400.woff" />
+    <None Include="Web design\assets\fonts\fa-regular-400.woff2" />
+    <None Include="Web design\assets\fonts\fa-solid-900.eot" />
+    <None Include="Web design\assets\fonts\fa-solid-900.ttf" />
+    <None Include="Web design\assets\fonts\fa-solid-900.woff" />
+    <None Include="Web design\assets\fonts\fa-solid-900.woff2" />
+    <None Include="Web design\assets\fonts\fontawesome-webfont.eot" />
+    <None Include="Web design\assets\fonts\fontawesome-webfont.ttf" />
+    <None Include="Web design\assets\fonts\fontawesome-webfont.woff" />
+    <None Include="Web design\assets\fonts\fontawesome-webfont.woff2" />
+    <None Include="Web design\assets\fonts\FontAwesome.otf" />
+    <None Include="Web design\assets\fonts\ionicons.eot" />
+    <None Include="Web design\assets\fonts\ionicons.ttf" />
+    <None Include="Web design\assets\fonts\ionicons.woff" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
