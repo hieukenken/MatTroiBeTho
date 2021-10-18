@@ -91,6 +91,7 @@
     <Content Include="assets\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\bootstrap\js\bootstrap.min.js" />
     <Content Include="assets\css\Article-List.css" />
+    <Content Include="assets\css\Footer-Dark.css" />
     <Content Include="assets\css\Login-Form-Dark.css" />
     <Content Include="assets\css\Navigation-with-Button.css" />
     <Content Include="assets\css\Registration-Form-with-Photo.css" />
@@ -124,6 +125,7 @@
     <Content Include="assets\img\meeting.jpg" />
     <Content Include="assets\img\quan-cafe-da-nang-10.1.jpg" />
     <Content Include="assets\img\star-sky.jpg" />
+    <Content Include="assets\js\bs-init.js" />
     <Content Include="assets\js\Simple-Slider.js" />
     <Content Include="assets\js\theme.js" />
     <Content Include="Content\Site.css" />

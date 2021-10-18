@@ -1,40 +1,133 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login - Brand</title>
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="~/assets/css/Article-List.css">
+    <link rel="stylesheet" href="~/assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="~/assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="~/assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="~/assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+
+<body class="bg-gradient-primary" style="background: url(&quot;../assets/img/1633766556048.jpg&quot;) center / cover no-repeat, rgb(185,188,195);">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="opacity: 0.80;background: rgba(11,4,1,0.93);padding: 5px 0px;transform: perspective(70px);">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+            <a class="navbar-brand" href="#" style="color: rgb(203,203,203);font-size: 25px;width: 185.406px;">Company Name</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" style="color: rgb(214,214,214);font-size: 16px;">First Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(214,214,214);">Second Item</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(214,214,214);">Dropdown </a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                    </li>
+                </ul><span class="navbar-text actions"> <a class="login" href="#" style="color: rgb(94,154,204);">Log In</a><a class="btn btn-light action-button" role="button" href="#">Sign Up</a></span>
             </div>
         </div>
+    </nav>
+    <div class="simple-slider">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background: url(&quot;../assets/img/quan-cafe-da-nang-10.1.jpg&quot;) center center / cover no-repeat;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"></div>
+                <div class="swiper-slide" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;) center center / cover no-repeat;"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </div>
+    <section class="article-list" style="background: rgba(11,4,1,0.93);">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="color: rgb(203,203,203);">Latest Articles</h2>
+                <p class="text-center" style="padding-bottom: 10px;color: rgb(203,203,203);">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" style="border-bottom-color: rgba(0,0,0,0);">
+                    <i class="fa fa-star d-flex d-xl-flex justify-content-center justify-content-xl-center" style="font-size: 50px;padding: 9px;color: rgb(203,203,203);"></i>
+                    <h1 class="d-xl-flex justify-content-xl-center" style="text-align: center;color: rgb(203,203,203);">Heading</h1>
+                    <p style="text-align: center;color: rgb(203,203,203);">Paragraph</p>
+                </div>
+                <div class="col-md-4" style="border-bottom-color: rgba(0,0,0,0);">
+                    <i class="fa fa-star d-flex d-xl-flex justify-content-center justify-content-xl-center" style="font-size: 50px;padding: 9px;color: rgb(203,203,203);"></i>
+                    <h1 class="d-xl-flex justify-content-xl-center" style="text-align: center;color: rgb(203,203,203);">Heading</h1>
+                    <p style="text-align: center;color: rgb(203,203,203);">Paragraph</p>
+                </div>
+                <div class="col-md-4" style="border-bottom-style: none;border-bottom-color: rgba(0,0,0,0);">
+                    <i class="fa fa-star d-flex d-xl-flex justify-content-center justify-content-xl-center" style="font-size: 50px;padding: 9px;color: rgb(203,203,203);"></i>
+                    <h1 class="d-xl-flex justify-content-xl-center" style="text-align: center;color: rgb(203,203,203);">Heading</h1>
+                    <p style="text-align: center;color: rgb(203,203,203);">Paragraph</p>
+                </div>
+            </div>
+        </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+
+        
+          
+                <div class="col-md-12">  @RenderBody() </div>
+        
+
+
+
+
+
+
+    </section>
+    <footer class="footer-dark" style="background: rgba(21,10,6,0.91);">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Hosting</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text">
+                    <h3>Company Name</h3>
+                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                </div>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <p class="copyright">Company Name © 2021</p>
+        </div>
+    </footer>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/Simple-Slider.js"></script>
+    <script src="~/assets/js/theme.js"></script>
 </body>
+
 </html>
