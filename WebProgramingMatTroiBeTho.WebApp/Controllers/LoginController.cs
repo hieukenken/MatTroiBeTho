@@ -12,6 +12,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
     public class LoginController : Controller
     {
         string err = string.Empty;
+        int rows = 0;
         // GET: Admin/Login
         public ActionResult Index()
         {
@@ -42,10 +43,50 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
             return View(accountModel);
         }
 
+        public ActionResult SingUp()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SingUp(Account account)
+        {
+            var checkUser = new AccountDB().CheckAccount(ref err, account.UserName);
+
+            if (!checkUser)
+            {
+                if(account.PassWord == account.CheckPassword)
+                {
+                    var result = new AccountDB().SingUpUser(ref err, ref rows, account);
+                    if (result && ModelState.IsValid)
+                    {
+                        ModelState.AddModelError("", "Tạo tài khoản thành công");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Lỗi cú pháp yêu cầu gõ chính xác");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Mật khẩu không trùng nhau");
+                }
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "Đã có người sử dụng");
+            }
+            return View(account);
+
+        }
+
+
         public ActionResult Logout()
         {
             SessionHelperLogin.SetSession(null);
             return RedirectToAction("Index", "Home");
         }
+
+
     }
 }

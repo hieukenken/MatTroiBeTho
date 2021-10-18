@@ -25,7 +25,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            
+           
         }
     }
 }
