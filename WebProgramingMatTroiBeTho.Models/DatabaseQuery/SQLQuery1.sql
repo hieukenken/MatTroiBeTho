@@ -125,15 +125,15 @@ create table SanPham(
     LoaiSP nvarchar(50),
     TinhTrang bit
 )
-create table HinhAnh(
-    IDAnh int IDENTITY(1,1) primary key,
-    MaSP int,
-    HinhAnh Image,
-    isDelete bit
-)
+
 Create table DonViTinh(
     MaDVT int IDENTITY(1,1) primary key,
     TenDVT nvarchar(50),
     isDelete bit
 )
+
+
+
+
+    
 
