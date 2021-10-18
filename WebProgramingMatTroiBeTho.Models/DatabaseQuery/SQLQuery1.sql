@@ -112,28 +112,3 @@ create table KhachHang(
         LoaiTaiKhoan int,
         TinhTrang bit
 )
-
-create table SanPham(
-    MaSP char(10) primary key,
-    IDAnh int,
-    TenSP nvarchar(100),
-    DinhDanhSP nvarchar(200),
-    DonGia float,
-    SoLuong int,
-    ChiTietSanPham nvarchar(500),
-    MaDVT int,
-    LoaiSP nvarchar(50),
-    TinhTrang bit
-)
-create table HinhAnh(
-    IDAnh int IDENTITY(1,1) primary key,
-    MaSP int,
-    HinhAnh Image,
-    isDelete bit
-)
-Create table DonViTinh(
-    MaDVT int IDENTITY(1,1) primary key,
-    TenDVT nvarchar(50),
-    isDelete bit
-)
-
