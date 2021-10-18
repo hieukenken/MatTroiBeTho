@@ -133,6 +133,65 @@ Create table DonViTinh(
 )
 
 
+-- proc xem danh sacsh san pham ( Hình ảnh mình cho 1 ảnh cho dễ khỏi mệt :)) nên lúc tạo m chuyển sang kiểu nvarchar hoặc iamge nha <3 )
+create proc NHP_SanPham_Select
+as 
+select sp.MaSP,IDAnh, TenSP,SoLuong,LoaiSP,dv.TenDVT
+from SanPham sp inner join DonViTinh dv 
+on sp.MaDVT=dv.MaDVT
+
+--Proc Them san pham (danh cho admin)
+create proc NHP_SanPham_ADD
+@MaSP char(10) ,
+    @IDAnh int,
+    @TenSP nvarchar(100),
+    @DinhDanhSP nvarchar(200),
+    @DonGia float,
+    @SoLuong int,
+    @ChiTietSanPham nvarchar(500),
+    @MaDVT int,           
+    @LoaiSP nvarchar(50)  --Loại gồm đóng chai và pha chế :)
+as
+insert into SanPham(MaSP,IDAnh,TenSP,DinhDanhSP,DonGia,SoLuong,ChiTietSanPham,MaDVT,LoaiSP,TinhTrang)
+values (@MaSP,@IDAnh,@TenSP,@DinhDanhSP,@DonGia,@SoLuong,@ChiTietSanPham,@MaDVT,@LoaiSP,@TinhTrang)
+
+--Proc sửa sản phâm nè (admin)
+create proc NHP_SanPham_UpdatesNe
+@MaSP char(10) ,
+    @IDAnh int,
+    @TenSP nvarchar(100),
+    @DinhDanhSP nvarchar(200),
+    @DonGia float,
+    @SoLuong int,
+    @ChiTietSanPham nvarchar(500),
+    @MaDVT int,           
+    @LoaiSP nvarchar(50)  --Loại gồm đóng chai và pha chế :)
+as
+IF EXISTS (SELECT 1 FROM SanPham WHERE MaSP=@MaSP AND TinhTrang=1 )
+begin --updates
+ update SanPham
+ set MaSP=@MaSP,
+     TenSP=@TenSP,
+     DinhDanhSP=@DinhDanhSP,
+     DonGia=@DonGia,
+     SoLuong=@SoLuong,
+     ChiTietSanPham=@ChiTietSanPham,
+     MaDVT=@MaDVT,
+     LoaiSP=@LoaiSP,
+     TinhTrang=1
+      WHERE MaSP=@MaSP AND TinhTrang=1
+end
+ -- proc xóa sản phẩm
+ create proc NHP_SanPham_UpdatesNe
+@MaSP char(10) 
+as
+IF EXISTS (SELECT 1 FROM SanPham WHERE MaSP=@MaSP AND TinhTrang=1 )
+begin --updates
+ update SanPham
+ set MaSP=@MaSP,    
+     TinhTrang=0
+WHERE MaSP=@MaSP AND TinhTrang=1
+end
 
 
     
