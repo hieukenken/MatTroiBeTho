@@ -17,7 +17,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="AD") {
+            if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="US") {
                 var baiviet = new BaiVietDB().GetBaiViet(ref err);
                 return View(baiviet);
             }
