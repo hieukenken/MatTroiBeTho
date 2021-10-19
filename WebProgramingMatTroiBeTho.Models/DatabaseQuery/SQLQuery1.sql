@@ -44,7 +44,7 @@ where IDBaiViet = @ID
 go
 
 Create table TaiKhoan(
-	MaTK int primary key not null,
+	MaTK int primary key IDENTITY(1,1) not null,
 	TenDangNhap nvarchar(50) not null,
 	MatKhau varchar(50) not null,
 	LoaiTaiKhoan int not null,
@@ -59,7 +59,7 @@ select * from BaiViet
 go
 --login check
 
-Create PROC [dbo].[SPH_Account_Login_Admin]
+alter PROC [dbo].[SPH_Account_Login_Admin]
     @UserName VARCHAR(20) ,
     @PassWord VARCHAR(20)
 AS
@@ -70,7 +70,7 @@ AS
         SELECT  @count = COUNT(*)
         FROM    TaiKhoan
         WHERE   TaiKhoan.TenDangNhap = @UserName
-                AND TaiKhoan.MatKhau = @PassWord AND TaiKhoan.LoaiTaiKhoan = 1;
+                AND TaiKhoan.MatKhau = @PassWord AND TaiKhoan.LoaiTaiKhoan = 1 and TaiKhoan.TinhTrang = 1;
         IF @count > 0
             SET @res = 1;
         ELSE
@@ -79,7 +79,57 @@ AS
     END;
 GO
 
-Create PROC [dbo].[SPH_Account_Login_User]
+create proc SPH_Account_Check
+	@UserName varchar(20)
+	AS
+    BEGIN
+        DECLARE @count INT;
+        DECLARE @res BIT;
+
+        SELECT  @count = COUNT(*)
+        FROM    TaiKhoan
+        WHERE   TaiKhoan.TenDangNhap = @UserName
+        IF @count > 0
+            SET @res = 1;
+        ELSE
+            SET @res = 0;
+        SELECT  @res;	
+    END;
+GO
+
+exec SPH_Account_Check '0912000812'
+go
+
+
+alter proc SPH_Account_Singup_User_Basic 
+	@Username varchar(20),
+	@PassWord varchar(20),
+	@NameKH varchar(20),
+	@LoaiTK int
+AS 
+begin
+	DECLARE @MaKH int;
+		Set @MaKH = 0;
+		begin
+		Insert into TaiKhoan(TenDangNhap,MatKhau,TinhTrang,LoaiTaiKhoan)
+		values(@Username, @PassWord, 1, @LoaiTK)
+
+		Select @MaKH = TaiKhoan.MaTK 
+		from TaiKhoan
+		where TaiKhoan.TenDangNhap = @Username
+
+		Insert into KhachHang(MaKH,TenKH, SDT, LoaiTaiKhoan, TinhTrang)
+		values(@MaKH,@NameKH,@Username,@LoaiTK,1)
+		end
+end
+
+
+exec SPH_Account_Singup_User_Basic '0912000812', '65622343','Phan',2
+go
+
+	
+
+alter PROC [dbo].[SPH_Account_Login_User]
     @UserName VARCHAR(20) ,
     @PassWord VARCHAR(20)
 AS
@@ -90,7 +140,7 @@ AS
         SELECT  @count = COUNT(*)
         FROM    TaiKhoan
         WHERE   TaiKhoan.TenDangNhap = @UserName
-                AND TaiKhoan.MatKhau = @PassWord AND TaiKhoan.LoaiTaiKhoan = 2;
+                AND TaiKhoan.MatKhau = @PassWord AND TaiKhoan.LoaiTaiKhoan = 2 and TaiKhoan.TinhTrang = 1;
         IF @count > 0
             SET @res = 1;
         ELSE
@@ -107,7 +157,7 @@ go
 go
 ---Thêm bảng khách hàng
 create table KhachHang(
-        MaKH char(10),
+        MaKH int primary key ,
         TenKH nvarchar(50),
         GioiTinh bit,
         DiaChi nvarchar(200),
@@ -117,8 +167,8 @@ create table KhachHang(
         TinhTrang bit
 )
 
-create table SanPham(
-    MaSP char(10) primary key,
+Create table SanPham(
+    MaSP varchar(10) primary key,
     IDAnh int,
     TenSP nvarchar(100),
     DinhDanhSP nvarchar(200),
@@ -129,12 +179,27 @@ create table SanPham(
     LoaiSP nvarchar(50),
     TinhTrang bit
 )
+go
+Create table HinhAnh (
+	IDAnh int,
+	MaSP varchar(10),
+	HinhAnh varchar(255),
+)
+go
 
 Create table DonViTinh(
     MaDVT int IDENTITY(1,1) primary key,
     TenDVT nvarchar(50),
-    isDelete bit
 )
+go
+
+alter proc PSH_Select_SanPham 
+as 
+select SanPham.MaSP, SanPham.TenSP, SanPham.DonGia, SanPham.SoLuong, SanPham.ChiTietSanPham, SanPham.LoaiSP,SanPham.TinhTrang, HinhAnh.HinhAnh
+from SanPham inner join HinhAnh on SanPham.IDAnh = HinhAnh.IDAnh
+go
+exec PSH_Select_SanPham 
+
 
 
 
