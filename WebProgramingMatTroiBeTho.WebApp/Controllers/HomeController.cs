@@ -15,6 +15,8 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
       
         string err = string.Empty;
         int rows = 0;
+        private List<SanPham> ListCartSP;
+
         // GET: Home
         public ActionResult Index()
         {
@@ -28,5 +30,8 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
             }
            
         }
+
+        // add to cart
+
     }
 }
