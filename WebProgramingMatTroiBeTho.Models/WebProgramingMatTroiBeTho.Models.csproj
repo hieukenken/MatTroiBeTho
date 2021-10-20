@@ -123,5 +123,6 @@
     <None Include="Web design\assets\fonts\ionicons.ttf" />
     <None Include="Web design\assets\fonts\ionicons.woff" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

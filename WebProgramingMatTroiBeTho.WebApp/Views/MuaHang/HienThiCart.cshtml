@@ -1,0 +1,82 @@
+﻿@model WebProgramingMatTroiBeTho.WebApp.Models.Cart
+@using WebProgramingMatTroiBeTho.Models.Models.SanPham
+@{
+    ViewBag.Title = "HienThiCart";
+}
+<div style="background: #ffffff; text-align: center">
+    <h2>Danh sách sản phẩm</h2>
+ </div>
+    <div style="background: #ffffff;">
+        <div class="table-responsive">
+            @if (Model != null)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Sản phẩm</th>
+                            <th style="text-align: center;">Tên sản phẩm</th>
+                            <th style="text-align: center;">Số lượng</th>
+                            <th style="text-align: center;">Giá tiền</th>
+                            <th style="text-align: center;">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            double total = Convert.ToDouble(item.shopping_SanPham.DonGia * item.shopping_quantity);
+
+
+                            <tr>
+                                <td style="text-align: center;vertical-align: middle;"><img src="@Html.DisplayFor(model => item.shopping_SanPham.HinhAnh)" width="150px" /></td>
+                                <td style="text-align: center;vertical-align: middle;">@Html.DisplayFor(model => item.shopping_SanPham.TenSP)</td>
+                                @using (Html.BeginForm("Update_Quatity_Cart", "MuaHang"))
+                                {
+                                    <input type="hidden" value="@item.shopping_SanPham.MaSP" name="MaSanPham" />
+                                    <td style="text-align: center;vertical-align: middle;">
+                                        <input value="@item.shopping_quantity" type="number" style="width: 58px;border-radius: 14px;" name="soSanPham" />
+                                        <button class="btn btn-primary" type="submit" style="margin-right: 14px;border-radius: 14px;background: rgb(232,117,110);">Cập nhật</button>
+                                    </td>
+                                }
+                                <td style="text-align: center;vertical-align: middle;">@total VNĐ</td>
+                                <td style="text-align: center;vertical-align: middle;">
+
+
+
+
+
+                                    <a href="/MuaHang/Xoa_SanPham/@item.shopping_SanPham.MaSP">
+                                        <button class="btn btn-primary" type="button" style="width: 54px;border-radius: 33px;height: 54px;margin-top: -1px;margin-right: 10px;background: rgba(100,218,218,0);border-color: rgba(255,255,255,0);">
+                                            <i class="fa fa-trash-o" style="font-size: 36px;color: rgb(102,95,95);"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                        }
+
+                        <tr></tr>
+                        <tr>
+                            <td style="text-align: center;vertical-align: middle;">Tổng số tiền thanh toán: </td>
+                            <td style="text-align: center;vertical-align: middle;"></td>
+                            <td style="text-align: center;vertical-align: middle;"></td>
+                            <td style="text-align: center;vertical-align: middle;">@Model.TongTien()</td>
+                            <td style="text-align: center;vertical-align: middle;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        </div>
+        <div style="background: #ffffff;padding-bottom: 19px;">
+            <div class="float-end" style="vertical-align: middle;padding-right: 36px;">
+
+                <button class="btn btn-primary" type="button" style="margin-left: 16px;border-radius: 14px;background: rgb(232,117,110);">Đặt hàng</button>
+            </div>
+            <a href="/Home/Index"> <span style="font-size: 22px;margin: 0px;margin-left: 95px;color: rgb(187,55,63);" class>Tiếp tục mua sắm <i class="fa fa-shopping-basket"></i></span></a>
+        </div>
+    </div>
+
+
+
+
+
