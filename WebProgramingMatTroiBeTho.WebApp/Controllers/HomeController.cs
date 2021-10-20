@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebProgramingMatTroiBeTho.Models.Models;
- using WebProgramingMatTroiBeTho.WebApp.Commons;
+using WebProgramingMatTroiBeTho.Models.Models.SanPham;
+using WebProgramingMatTroiBeTho.WebApp.Commons;
 
 namespace WebProgramingMatTroiBeTho.WebApp.Controllers
 {
@@ -18,8 +19,8 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         public ActionResult Index()
         {
             if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="US") {
-                var baiviet = new BaiVietDB().GetBaiViet(ref err);
-                return View(baiviet);
+                var sanPham = new SanPhamDB().GetSanPhamList(ref err);
+                return View(sanPham);
             }
             else
             {
