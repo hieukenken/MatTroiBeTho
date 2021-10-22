@@ -23,6 +23,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         [ValidateAntiForgeryToken] //kieemr tra token, tranhs request lien tuc
         public ActionResult Index(AccountModelLogin accountModel)
         {
+          
             var resultAD = new AccountDB().LoginAdmin(ref err, accountModel.UserName, accountModel.PassWord);
             var resultUS = new AccountDB().LoginUser(ref err, accountModel.UserName, accountModel.PassWord);
 

@@ -54,5 +54,14 @@ namespace WebProgramingMatTroiBeTho.WebApp.Models
         {
             items.RemoveAll(s => s.shopping_SanPham.MaSP == id);
         }
+
+        public int TongSoHangTrongCart()
+        {
+            return items.Sum(s => s.shopping_quantity);
+        }
+        public void XoaCart()
+        {
+            items.Clear();
+        }
     }
 }
