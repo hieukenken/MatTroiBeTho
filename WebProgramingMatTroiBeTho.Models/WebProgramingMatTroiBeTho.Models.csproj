@@ -49,6 +49,10 @@
     <Compile Include="Models\BaiVietDB.cs" />
     <Compile Include="Models\BasicDB.cs" />
     <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\SanPham\Order.cs" />
+    <Compile Include="Models\SanPham\OrderDB.cs" />
+    <Compile Include="Models\SanPham\OrderDetail.cs" />
+    <Compile Include="Models\SanPham\OrderDetailDB.cs" />
     <Compile Include="Models\SanPham\SanPham.cs" />
     <Compile Include="Models\SanPham\SanPhamDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

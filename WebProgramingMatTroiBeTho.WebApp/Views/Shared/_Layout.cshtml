@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WebProgramingMatTroiBeTho.WebApp.Commons
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -39,7 +40,19 @@
                         <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(214,214,214);">Dropdown </a>
                         <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
                     </li>
-                </ul><span class="navbar-text actions"> <a class="login" href="#" style="color: rgb(94,154,204);">Log In</a><a class="btn btn-light action-button" role="button" href="@Url.Action("Logout", "Login")">Sign Up</a></span>
+                </ul>
+                <span class="navbar-text actions">
+                    <a class="login" href="@Url.Action("SingUp","Login")" style="color: rgb(94,154,204);">Log In</a>
+                    @if (SessionHelperLogin.GetSession() != null)
+                    {
+                        <a class="btn btn-light action-button" role="button" href="@Url.Action("Logout", "Login")">Log out</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-light action-button" role="button" href="@Url.Action("Index", "Login")">Sign Up</a>
+                    }
+
+                </span>
             </div>
         </div>
     </nav>
