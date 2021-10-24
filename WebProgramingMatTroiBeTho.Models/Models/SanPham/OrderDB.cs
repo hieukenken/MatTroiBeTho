@@ -29,6 +29,28 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
             return data.MyExecteNonQuery(ref err, ref rows, "PSH_ThemOrder", CommandType.StoredProcedure, param);
         
     }
-        
+        public List<Order> HienThiHD(ref string err, string MaKH)
+        {
+            List<Order> lisHD = new List<Order>();
+            var dataReader = data.MyExecuteReader(ref err, "PSH_InHoaDon", CommandType.StoredProcedure, new SqlParameter("@MaKH", MaKH));
+            if(dataReader != null)
+            {
+                while (dataReader.Read())
+                {
+                    lisHD.Add(
+                    new Order()
+                    {
+                        MaHD = int.Parse(dataReader["MaHD"].ToString()),
+                        ThoiGianDatHang = DateTime.Parse(dataReader["NgayLap"].ToString()),
+                        SoDienThoaiNhanHang = dataReader["SDTdathang"].ToString(),
+                        DiaChiNhanHang = dataReader["DiaChiNhanHang"].ToString(),
+                        TongTien = double.Parse(dataReader["TongTien"].ToString()),
+                        GiaoHang = bool.Parse(dataReader["GiaoHang"].ToString())
+                    });
+
+                }
+            }
+            return lisHD;
+        }
     }
 }
