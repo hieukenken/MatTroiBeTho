@@ -15,23 +15,46 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
       
         string err = string.Empty;
         int rows = 0;
-        private List<SanPham> ListCartSP;
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="US") {
-                var sanPham = new SanPhamDB().GetSanPhamList(ref err);
+           // if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="US") {
+                var sanPham = new SanPhamDB().GetSanPhamList(ref err,searchString);
                 return View(sanPham);
+          //  }
+          //  else
+         //   {
+         //       return RedirectToAction("Index", "Login");
+         //   }
+           
+        }
+        // add to cart
+
+        public ActionResult HienThiHoaDon(FormCollection form)
+        {
+             if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="US") {
+                string MaKH = form["MaKH"];
+                var hoaDons = new OrderDB().HienThiHD(ref err, MaKH);
+                return View(hoaDons);
+              }
+              else
+               {
+                   return RedirectToAction("Index", "Login");
+               }
+        }
+
+        public ActionResult HienThiChiTiet(string MaHD)
+        {
+            if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type == "US")
+            {
+                var ctHoaDons = new OrderDetailDB().HienThiChiTiet(ref err, MaHD);
+                return View(ctHoaDons);
             }
             else
             {
                 return RedirectToAction("Index", "Login");
             }
-           
         }
-
-        // add to cart
-
     }
 }

@@ -94,8 +94,10 @@
     <Content Include="assets\css\Footer-Dark.css" />
     <Content Include="assets\css\Highlight-Phone.css" />
     <Content Include="assets\css\Login-Form-Dark.css" />
+    <Content Include="assets\css\Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css" />
     <Content Include="assets\css\Navigation-with-Button.css" />
     <Content Include="assets\css\Registration-Form-with-Photo.css" />
+    <Content Include="assets\css\Search-Input-responsive.css" />
     <Content Include="assets\css\Simple-Slider.css" />
     <Content Include="assets\fonts\fa-brands-400.svg" />
     <Content Include="assets\fonts\fa-regular-400.svg" />
@@ -130,6 +132,8 @@
     <Content Include="assets\img\star-sky.jpg" />
     <Content Include="assets\js\Animated-Number-element.js" />
     <Content Include="assets\js\bs-init.js" />
+    <Content Include="assets\js\Ludens---1-Index-Table-with-Search--Sort-Filters-v20-1.js" />
+    <Content Include="assets\js\Ludens---1-Index-Table-with-Search--Sort-Filters-v20.js" />
     <Content Include="assets\js\Simple-Slider.js" />
     <Content Include="assets\js\theme.js" />
     <Content Include="Content\Site.css" />
@@ -189,6 +193,8 @@
     <Content Include="Views\MuaHang\HienThiCart.cshtml" />
     <Content Include="Views\MuaHang\GioHang.cshtml" />
     <Content Include="Views\MuaHang\MuaSamThanhCong.cshtml" />
+    <Content Include="Views\Home\HienThiHoaDon.cshtml" />
+    <Content Include="Views\Home\HienThiChiTiet.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -15,7 +15,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         int rows;
         List<SanPham> lsSp()
         {
-            var list = new SanPhamDB().GetSanPhamList(ref err);
+            var list = new SanPhamDB().GetSanPhamList(ref err,"");
             return list;
         }
 
@@ -44,11 +44,20 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
 
         public ActionResult HienThiCart()
         {
+            if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type == "US")
+            {
+                TempData["Number"] = SessionHelperLogin.GetSession().UserName;
+                if (Session["Cart"] == null)
+                    return RedirectToAction("HienThiCart", "MuaHang");
+                Cart cart = Session["Cart"] as Cart;
+                return View(cart);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
             
-            if (Session["Cart"] == null)
-                return RedirectToAction("HienThiCart", "MuaHang");
-            Cart cart = Session["Cart"] as Cart;
-            return View(cart);
         }
 
         public ActionResult Update_Quatity_Cart(FormCollection form)
@@ -112,6 +121,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
                     order.DiaChiNhanHang = form["DiaChiNhanHang"];
                     order.SoDienThoaiNhanHang = form["SDTNhanHang"];
                     order.TongTien = double.Parse(form["TongTienThanhToan"]);
+                    order.GiaoHang = false;
                     // tạo cập nhật order vào database orderDB
                     var add_order = orderDB.AddOrder(ref err, ref rows, order);
                     if(!add_order)

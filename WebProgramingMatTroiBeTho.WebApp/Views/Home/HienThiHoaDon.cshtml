@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebProgramingMatTroiBeTho.Models.Models.SanPham.Order>
+
+@{
+    ViewBag.Title = "HienThiHoaDon";
+}
+
+
+<div class="row">
+    <div class="col">
+        <div class="container-fluid">
+            <div class="card" id="TableSorterCard">
+                <div class="card-header py-3">
+                    <div class="row table-topper align-items-center">
+                        <div class="col-12 col-sm-5 col-md-6 text-start" style="margin: 0px;padding: 5px 15px;">
+                            <p class="text-primary m-0 fw-bold">Danh sách đã mua</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table tablesorter" id="ipi-table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="text-center">Giao hàng</th>
+                                        <th class="text-center">Thời gian </th>
+                                        <th class="text-center">Tổng tiền</th>
+                                        <th class="text-center">SĐT nhận hàng</th>
+                                        <th class="text-center">Địa chỉ</th>
+                                        <th class="text-center filter-false sorter-false">Xem chi tiết</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @if (item.GiaoHang)
+                                            {
+                                                <input type="checkbox" checked="checked" disabled />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" disabled />
+                                            }
+                                        </td>
+                                        <td>@Html.DisplayFor(modelItem => item.ThoiGianDatHang)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.TongTien) VNĐ</td>
+                                        <td>@Html.DisplayFor(modelItem => item.SoDienThoaiNhanHang)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.DiaChiNhanHang)</td>
+                                        <td class="text-center align-middle" style="max-height: 60px;height: 60px;">
+                                        <a class="btn btnMaterial btn-flat primary semicircle" role="button" href=" @Url.Action("HienThiChiTiet", "Home", new {item.MaHD}) "><i class="far fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                    }
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+

@@ -22,5 +22,6 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
             };
             return data.MyExecteNonQuery(ref err, ref rows, "PSH_ThemChiTietOrder", CommandType.StoredProcedure, param);
         }
+        
     }
 }
