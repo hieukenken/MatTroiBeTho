@@ -12,11 +12,14 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
     {
         public SanPhamDB() : base() { }
 
-        public List<SanPham> GetSanPhamList(ref string err)
+        public List<SanPham> GetSanPhamList(ref string err, string searchString)
         {
             List<SanPham> list = new List<SanPham>();
-
-            var dataReader = data.MyExecuteReader(ref err, "PSH_Select_SanPham", CommandType.StoredProcedure, null);
+            if(searchString == null)
+            {
+                searchString = "";
+            }
+            var dataReader = data.MyExecuteReader(ref err, "PSH_Select_SanPham", CommandType.StoredProcedure, new SqlParameter("@searchString", searchString));
             if(dataReader != null)
             {
                 while (dataReader.Read())
@@ -35,6 +38,8 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
                         });
                 }
             }
+            
+
             return list;
         }
     }

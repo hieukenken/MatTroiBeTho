@@ -10,9 +10,11 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
     {
         public int MaHD { get; set; }
         public string IDSP { get; set; }
+        public string TenSP { get; set; }
         public double GiamGia { get; set; }
         public double GiaTien { get; set; }
         public int SoLuong { get; set; }
         public string LoaiHang { get; set; }
+        public string HinhAnh { get; set; }
     }
 }

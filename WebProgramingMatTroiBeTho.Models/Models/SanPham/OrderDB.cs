@@ -23,10 +23,12 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
                 new SqlParameter("@SDTNhanHang", order.SoDienThoaiNhanHang),
                 new SqlParameter("@DiaChiNhan", order.DiaChiNhanHang),
                 new SqlParameter("@TongTien", order.TongTien),
-                new SqlParameter("@NgayLap", order.ThoiGianDatHang)
+                new SqlParameter("@NgayLap", order.ThoiGianDatHang),
+                new SqlParameter("@GiaoHang", order.GiaoHang)
             };
             return data.MyExecteNonQuery(ref err, ref rows, "PSH_ThemOrder", CommandType.StoredProcedure, param);
         
     }
+        
     }
 }

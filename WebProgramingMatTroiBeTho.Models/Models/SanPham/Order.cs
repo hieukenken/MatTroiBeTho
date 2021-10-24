@@ -17,6 +17,7 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
         public double TongTien { get; set; }
         public int SoLuong { get; set; }
         public string DiaChiNhanHang { get; set; }
+        public bool GiaoHang { get; set; }
     }
 }
 

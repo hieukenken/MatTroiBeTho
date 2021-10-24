@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="~/assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="~/assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="~/assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="~/assets/css/Search-Input-responsive.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,31 +31,47 @@
 
 <body class="bg-gradient-primary" style="background: url(&quot;../assets/img/1633766556048.jpg&quot;) center / cover no-repeat, rgb(185,188,195);">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="opacity: 0.80;background: rgba(11,4,1,0.93);padding: 5px 0px;transform: perspective(70px);">
-        <div class="container">
-            <a class="navbar-brand" href="#" style="color: rgb(203,203,203);font-size: 25px;width: 185.406px;">Company Name</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#" style="color: rgb(214,214,214);font-size: 16px;">First Item</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(214,214,214);">Second Item</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(214,214,214);">Dropdown </a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                    </li>
-                </ul>
-                <span class="navbar-text actions">
-                    <a class="login" href="@Url.Action("SingUp","Login")" style="color: rgb(94,154,204);">Log In</a>
-                    @if (SessionHelperLogin.GetSession() != null)
-                    {
-                        <a class="btn btn-light action-button" role="button" href="@Url.Action("Logout", "Login")">Log out</a>
-                    }
-                    else
-                    {
-                        <a class="btn btn-light action-button" role="button" href="@Url.Action("Index", "Login")">Sign Up</a>
-                    }
+       
+        <div class="container"><a class="navbar-brand" href="/Home/Index" style="color: rgb(203,203,203);font-size: 25px;width: 185.406px;">Hiếu fun sờ tắc</a><button data-bs-toggle="collapse" data-bs-target="#navcol-1" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(214,214,214);font-size: 16px;">Đồ ăn </a></li>
+            <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(214,214,214);">Sự Kiện</a></li>
+            <li class="nav-item">
 
-                </span>
-            </div>
-        </div>
+                @if (SessionHelperLogin.GetSession() != null)
+                {
+                    using (Html.BeginForm("HienThiHoaDon", "Home"))
+                    {
+                        <input value="@SessionHelperLogin.GetSession().UserName" type="hidden" style="width: 58px;border-radius: 14px;" name="MaKH" />
+                        <button class="btn btn-primary" type="submit" style="background: rgba(78,115,223,0);border-color: rgba(255,255,255,0);">
+                            Hóa đơn
+                        </button>
+                    }
+                }
+
+            
+
+            </li>
+        </ul>
+        <span class="navbar-text actions">
+            <a class="login" href="@Url.Action("SingUp","Login")" style="color: rgb(94,154,204);">Sign Up</a>
+            @if (SessionHelperLogin.GetSession() != null)
+            {
+                <a class="btn btn-light action-button" role="button" href="@Url.Action("Logout", "Login")">Log out</a>
+            }
+            else
+            {
+                <a class="btn btn-light action-button" role="button" href="@Url.Action("Index", "Login")"> Log In</a>
+            }
+
+        </span>
+    </div>
+</div>
+        
+        
+        
+        
     </nav>
 
 

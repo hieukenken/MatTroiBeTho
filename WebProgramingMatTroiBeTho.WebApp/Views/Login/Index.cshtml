@@ -33,11 +33,11 @@
                 @Html.AntiForgeryToken()
                 <h2 class="text-center"><strong>Đăng nhập</strong></h2>
                 <div class="mb-3">
-                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placehoder = "Nhập tài khoản...", @name = "UserName", @autofocus = "autofocus", @style = "background: rgba(247,249,252,0)" })
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "Nhập tài khoản...", @name = "UserName", @autofocus = "autofocus", @style = "background: rgba(247,249,252,0)" })
                 </div>
 
                 <div class="mb-3">
-                    @Html.TextBoxFor(model => model.PassWord, new { @class = "form-control", @placehoder = "Password", @name = "PassWord", @type = "password", value = "", @style = "background: rgba(247,249,252,0)" })
+                    @Html.TextBoxFor(model => model.PassWord, new { @class = "form-control", @placeholder = "Password", @name = "PassWord", @type = "password", value = "", @style = "background: rgba(247,249,252,0)" })
                 </div>
                 <div class="mb-3"></div>
                 <div class="mb-3">
