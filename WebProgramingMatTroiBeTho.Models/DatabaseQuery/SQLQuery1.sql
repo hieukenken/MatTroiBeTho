@@ -192,7 +192,44 @@ begin --updates
      TinhTrang=0
 WHERE MaSP=@MaSP AND TinhTrang=1
 end
+---Proc them sp
+ALTER proc [dbo].[NHP_SanPham_ADD]
+	@id nvarchar(10),
+    @TenSP NVARCHAR(100),
+    @IDAnh int,
+    @DonGia INT ,
+    @SoLuong int ,
+    @ChiTietSanPham nvarchar(200) ,
+    @LoaiSP nvarchar(50),
+	@TinhTrang bit
+AS
+IF EXISTS (SELECT 1 FROM dbo.SanPham where MaSP=@id)
+BEGIN
+    UPDATE SanPham
+	SET  TenSP=@TenSP,IDAnh=@IDAnh,DonGia=@DonGia,SoLuong=@SoLuong,ChiTietSanPham=@ChiTietSanPham,LoaiSP=@LoaiSP,TinhTrang=@TinhTrang
+	WHERE MaSP=@id
+END
+ELSE	
+BEGIN
+     INSERT  INTO SanPham(MaSP,TenSP,IDAnh,DonGia,SoLuong,ChiTietSanPham,LoaiSP,TinhTrang )
+	VALUES				(@id ,@TenSP,@IDAnh,@DonGia,@SoLuong,@ChiTietSanPham,@LoaiSP,@TinhTrang)
+End
+---
+ALTER proc [dbo].[NHP_Admin_XemHoaDon] 
+as
+select Orders.MaHD ,Orders.NgayLap, Orders.SDTdathang, Orders.DiaChiNhanHang, Orders.TongTien, Orders.GiaoHang
+from Orders inner join KhachHang on Orders.SDT = KhachHang.SDT 
 
+ORDER BY Orders.MaHD DESC
+
+--
+
+ALTER proc [dbo].[NHP_ADMIN_ChiTietHD] @id char(13)
+as
+select ChiTietHOADON.MaHD,HinhAnh.HinhAnh,SanPham.TenSP, ChiTietHOADON.SoLuong, ChiTietHOADON.DonGia, ChiTietHOADON.LoaiHang
+from ChiTietHOADON inner join SanPham on ChiTietHOADON.MaSP = SanPham.MaSP
+					inner join HinhAnh on ChiTietHOADON.MaSP = HinhAnh.MaSP
+where ChiTietHOADON.MaHD = @id
 
     
 
