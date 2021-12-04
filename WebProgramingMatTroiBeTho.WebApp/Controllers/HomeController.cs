@@ -21,6 +21,8 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         {
            // if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type =="US") {
                 var sanPham = new SanPhamDB().GetSanPhamList(ref err,searchString);
+                string soluong = sanPham.Count.ToString();
+            ViewBag.TongSanPham = soluong;
                 return View(sanPham);
           //  }
           //  else
@@ -30,6 +32,27 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
            
         }
         // add to cart
+        public ActionResult DanhMuc(string id)
+        {
+            var sanPhamDanhmuc = new SanPhamDB().GetSanPhamDanhMuc(ref err, id.Trim());
+            string soluong = sanPhamDanhmuc.Count.ToString();
+            if (id.Equals("PhaChe"))
+            {
+                ViewBag.SoSanPham = "Sản Phẩm pha chế | "+ soluong +" Sản phẩm";
+            }
+            else if (id.Equals("DongChai"))
+            {
+                ViewBag.SoSanPham = "Sản phẩm đóng chai | " + soluong + " Sản phẩm";
+            }
+            else if (id.Equals("DoAnNhanh")){
+                ViewBag.SoSanPham = "Đồ ăn nhanh | " + soluong + " Sản phẩm";
+            }
+            else
+            {
+                ViewBag.SoSanPham = "Tất cả sản phẩm | " + soluong + " Sản phẩm";
+            }
+                return View(sanPhamDanhmuc);
+        }
 
         public ActionResult HienThiHoaDon(FormCollection form)
         {
@@ -48,7 +71,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         {
             if (SessionHelperLogin.GetSession() != null && SessionHelperLogin.GetSession().Type == "US")
             {
-                var ctHoaDons = new OrderDetailDB().HienThiChiTiet(ref err, MaHD);
+                var ctHoaDons = new OrderDetailDB().HienThiChiTiet (ref err, MaHD);
                 return View(ctHoaDons);
             }
             else

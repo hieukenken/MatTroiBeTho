@@ -38,9 +38,29 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
                         });
                 }
             }
-            
-
             return list;
+        }
+        public List<SanPham> GetSanPhamDanhMuc(ref string err, string loai)
+        {
+            List<SanPham> ls = new List<SanPham>();
+            var dataReader = data.MyExecuteReader(ref err, "PSH_Select_SanPhamLoai", CommandType.StoredProcedure, new SqlParameter("@searchString", loai));
+            if(dataReader!= null)
+            {
+                while (dataReader.Read())
+                {
+                    ls.Add(new SanPham {
+                        MaSP = dataReader["MaSP"].ToString(),
+                        TenSP = dataReader["TenSP"].ToString(),
+                        DonGia = double.Parse(dataReader["DonGia"].ToString()),
+                        SoLuong = int.Parse(dataReader["SoLuong"].ToString()),
+                        ChiTietSanPham = dataReader["ChiTietSanPham"].ToString(),
+                        LoaiSP = dataReader["LoaiSP"].ToString(),
+                        TinhTrang = bool.Parse(dataReader["TinhTrang"].ToString()),
+                        HinhAnh = dataReader["HinhAnh"].ToString()
+                    });
+                }
+            }
+            return ls;
         }
     }
 }

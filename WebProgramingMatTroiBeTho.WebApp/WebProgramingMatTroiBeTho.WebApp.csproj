@@ -90,6 +90,7 @@
   <ItemGroup>
     <Content Include="assets\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\css.css" />
     <Content Include="assets\css\Article-List.css" />
     <Content Include="assets\css\Footer-Dark.css" />
     <Content Include="assets\css\Highlight-Phone.css" />
@@ -196,6 +197,8 @@
     <Content Include="Views\MuaHang\MuaSamThanhCong.cshtml" />
     <Content Include="Views\Home\HienThiHoaDon.cshtml" />
     <Content Include="Views\Home\HienThiChiTiet.cshtml" />
+    <Content Include="Views\Shared\_LayoutSanPham.cshtml" />
+    <Content Include="Views\Home\DanhMuc.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
