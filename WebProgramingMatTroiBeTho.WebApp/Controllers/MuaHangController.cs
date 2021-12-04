@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebProgramingMatTroiBeTho.Models.Models.Account;
 using WebProgramingMatTroiBeTho.Models.Models.SanPham;
 using WebProgramingMatTroiBeTho.WebApp.Commons;
 using WebProgramingMatTroiBeTho.WebApp.Models;
@@ -33,13 +34,21 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
 
         public ActionResult ThemVaoGioHang(string id)
         {
-
-            var sp = lsSp().SingleOrDefault(s => s.MaSP == id);
-          if(sp != null)
+            if(SessionHelperLogin.GetSession() != null)
             {
-                GetCart().Add(sp);
+                var sp = lsSp().SingleOrDefault(s => s.MaSP == id);
+                if (sp != null)
+                {
+                    GetCart().Add(sp);
+                }
+                return RedirectToAction("Index", "Home"); // RedirectToAction("HienThiCart", "MuaHang");
             }
-           return RedirectToAction("HienThiCart", "MuaHang");
+            else
+            {
+                SetAlert("Bạn cần đăng nhập để mua hàng", 2);
+                return RedirectToAction("Index", "Login");
+            }
+               
         }
 
         public ActionResult HienThiCart()
@@ -97,6 +106,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
                 {
                     Order order = new Order();
                     OrderDB orderDB = new OrderDB();
+                    KhachHangDB khachHangDB = new KhachHangDB();
                     int MaHD = orderDB.CheckMaHDInOrder(ref err);
                     MaHD = MaHD + 1;
                     foreach (var item in cart.Items)
@@ -123,6 +133,13 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
                     order.GiaoHang = false;
                     // tạo cập nhật order vào database orderDB
                     var add_order = orderDB.AddOrder(ref err, ref rows, order);
+
+                    // Cập nhật địa chỉ nhận của khách hàng
+                    var add_DiaChi = khachHangDB.ThemDiaChiKhachHang(ref err, ref rows, order.DiaChiNhanHang, order.SDTDangNhap);
+                    if (!add_DiaChi)
+                    {
+                        return Content("Lỗi Không add được địa chỉ, Thông báo với admin để có thưởng :V");
+                    }
                     if(!add_order)
                         return Content("Lỗi Không add được, Thông báo với admin để có thưởng :V");
                     // lấy item vào giỏ hàng
@@ -138,6 +155,26 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
             catch
             {
                 return Content("Lỗi mua hàng, xem lại thông tin...");
+            }
+        }
+        protected void SetAlert(string message, int type)
+        {
+            TempData["AlertMessage"] = message;
+            if (type == 1)
+            {
+                TempData["AlertType"] = "alert-success";
+            }
+            else if (type == 2)
+            {
+                TempData["AlertType"] = "alert-warning";
+            }
+            else if (type == 3)
+            {
+                TempData["AlertType"] = "alert-danger";
+            }
+            else
+            {
+                TempData["AlertType"] = "alert-info";
             }
         }
     }

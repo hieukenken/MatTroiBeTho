@@ -27,6 +27,21 @@ namespace WebProgramingMatTroiBeTho.Models.Models.Account
             }
             return result;
         }
+        // lấy thông tin khách hàng, Hiện tại chỉ lấy địa chỉ và tên 
+        public KhachHang GetKhachHang(ref string err, string UserName)
+        {
+            KhachHang khachHang = new KhachHang();
+            var dataReader = data.MyExecuteReader(ref err, "PSH_LayDiaChiKhachHang", CommandType.StoredProcedure, new SqlParameter("@UserName", UserName));
+            if(dataReader != null)
+            {
+                while (dataReader.Read())
+                {
+                    khachHang.DiaChiKH = dataReader["DiaChiNhan"].ToString();
+                    khachHang.TenKH = dataReader["TenKH"].ToString();
+                }
+            }
+            return khachHang;
+        }
 
         public bool CheckAccount(ref string err, string UserName)
         {
@@ -75,6 +90,7 @@ namespace WebProgramingMatTroiBeTho.Models.Models.Account
             };
             return data.MyExecteNonQuery(ref err, ref rows, "SPH_Account_Singup_User_Basic", CommandType.StoredProcedure, param);
         }
+
 
     }
 }

@@ -1,0 +1,161 @@
+﻿@using WebProgramingMatTroiBeTho.WebApp.Commons
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="~/assets/css.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+        <a class="navbar-brand ml-2 font-weight-bold" href="/Home/Index"><span id="burgundy">Hiếu</span><span id="orange">Hub</span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor" aria-controls="navbarColor" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarColor">
+            <ul class="navbar-nav" style="float:inline-end">
+                <li class="nav-item rounded bg-light search-nav-item">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                    {
+                        <input type="text" id="search" name="searchString" class=" bg-light" placeholder="Tìm kiếm sản phẩm" /><span class="fa fa-search"></span>
+                        <button class="btn btn-primary" type="button" style="color: rgb(120,111,111);background: rgba(255,255,255,0);border-style: none;"></button>
+                    }
+
+                </li>
+
+                <ul class="navbar-nav" style="float:right">
+                    <li class="nav-item">
+                        @if (SessionHelperLogin.GetSession() != null)
+                        {
+                            <a class="nav-link" style="margin-left:200px" href="/Login/Logout"><span class="fa fa-door-open"></span><span class="text">Log out</span></a>
+                        }
+                        else
+                        {
+                            <a class="nav-link" style="margin-left:200px" href="/Login/Index"><span class="fa fa-user-alt"></span><span class="text">Login</span></a>
+                        }
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/MuaHang/HienThiCart"><span class="fa fa-shopping-cart"></span><span class="text">Cart</span></a>
+                    </li>
+                </ul>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="filter">
+        <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="true" aria-controls="mobile-filter">Filters<span class="fa fa-filter pl-1"></span></button>
+    </div>
+    <div id="mobile-filter">
+        <p class="pl-sm-0 pl-2"> Home | <b>All Breads</b></p>
+        <div class="border-bottom pb-2 ml-2">
+            <h4 id="burgundy">Filters</h4>
+        </div>
+        <div class="py-2 border-bottom ml-3">
+            <h6 class="font-weight-bold">Categories</h6>
+            <div id="orange"><span class="fa fa-minus"></span></div>
+            <form>
+                <div class="form-group"> <input type="checkbox" id="artisan"> <label for="artisan">Fresh Artisan Breads</label> </div>
+                <div class="form-group"> <input type="checkbox" id="breakfast"> <label for="breakfast">Breakfast Breads</label> </div>
+                <div class="form-group"> <input type="checkbox" id="healthy"> <label for="healthy">Healthy Breads</label> </div>
+            </form>
+        </div>
+        <div class="py-2 border-bottom ml-3">
+            <h6 class="font-weight-bold">Accompainments</h6>
+            <div id="orange"><span class="fa fa-minus"></span></div>
+            <form>
+                <div class="form-group"> <input type="checkbox" id="tea"> <label for="tea">Tea Cakes</label> </div>
+                <div class="form-group"> <input type="checkbox" id="cookies"> <label for="cookies">Cookies</label> </div>
+                <div class="form-group"> <input type="checkbox" id="pastries"> <label for="pastries">Pastries</label> </div>
+                <div class="form-group"> <input type="checkbox" id="dough"> <label for="dough">Cookie Dough</label> </div>
+                <div class="form-group"> <input type="checkbox" id="choco"> <label for="choco">Chocolates</label> </div>
+            </form>
+        </div>
+        <div class="py-2 ml-3">
+            <h6 class="font-weight-bold">Top Offers</h6>
+            <div id="orange"><span class="fa fa-minus"></span></div>
+            <form>
+                <div class="form-group"> <input type="checkbox" id="25off"> <label for="25">25% off</label> </div>
+                <div class="form-group"> <input type="checkbox" id="5off"> <label for="5off" id="off">5% off on artisan breads</label> </div>
+            </form>
+        </div>
+    </div>
+    <!-- Sidebar filter section -->
+    <section id="sidebar">
+        <p> Một bước yêu vạn dặm đau</b></p>
+        <div class="border-bottom pb-2 ml-2">
+            <h4 id="burgundy">Chức năng</h4>
+        </div>
+        <div class="py-2 border-bottom ml-3">
+            <h6 class="font-weight-bold">Danh mục sản phẩm</h6>
+            <div id="orange"><span class="fa fa-minus"></span></div>
+            <a href="/Home/Index"><button class="btn w-100" style="text-align: left; color: #212529; border:none;padding-left:20px; padding-top:10px">Tất cả sản phẩm</button></a>
+            <a href="/Home/DanhMuc/PhaChe"><button class="btn w-100" style="text-align: left; color: #212529; border:none;padding-left:20px; padding-top:10px"> Sản phẩm pha chế </button></a>
+            <a href="/Home/DanhMuc/DongChai"><button class="btn w-100" style="text-align: left; color: #212529; border:none;padding-left:20px; padding-top:10px">Sản phẩm đóng chai</button></a>
+            <a href="/Home/DanhMuc/DoAnNhanh"><button class="btn w-100" style="text-align: left; color: #212529; border:none;padding-left:20px; padding-top:10px">Đồ ăn nhanh</button></a>
+        </div>
+
+        <!-- Điều kiện khi đăng nhập mới hiển thị -->
+        <!-- Nếu trả về null thì tạo check box set địa chỉ cho người dùng -->
+        @if (SessionHelperLogin.GetSession() != null)
+        {
+            <div class="py-2 border-bottom ml-3">
+                <h6 class="font-weight-bold">Địa chỉ nhận hàng</h6>
+                <div id="orange"><span class="fa fa-minus"></span></div>
+                <form>
+                    <div class="form-grou">
+                        <label for="tea">
+                            <b>
+                                @if (SessionHelperLogin.GetSession().Address != "")
+                                {
+                                    <u>
+                                        <span>
+                                            @SessionHelperLogin.GetSession().Address.ToString()
+                                        </span>
+                                    </u>
+                                }
+                                else
+                                {
+                                    <span>Bạn chưa có địa chỉ giao hàng</span>;
+                                }
+
+                            </b>
+                        </label>
+                    </div>
+                    <div class="form-grou">
+                        <a href="/MuaHang/HienThiCart"><label for="healthy">Sửa địa điểm giao hàng</label></a>
+                    </div>
+                </form>
+            </div>
+        }
+
+        <!--  -->
+
+
+    <div class="py-2 ml-3">
+        <h6 class="font-weight-bold">Khách Hàng</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+        @if (SessionHelperLogin.GetSession() != null)
+        {
+            using (Html.BeginForm("HienThiHoaDon", "Home"))
+            {
+                <input value="@SessionHelperLogin.GetSession().UserName" type="hidden" style="width: 58px;border-radius: 14px;" name="MaKH" />
+                <button type="submit" class="btn w-100" style="text-align: left; color: #212529; border:none;padding-left:20px; padding-top:10px">Hóa đơn mua hàng</button>
+            }
+            }
+            else
+            {
+                 <a href="Login/Index"><button class="btn w-100" style="text-align: left; color: #212529; border:none;padding-left:20px; padding-top:10px">Hóa đơn mua hàng</button></a>
+            }
+
+
+        <a href="#"><button class="btn w-100" style="text-align: left; color: #212529; border:none;padding-left:20px; padding-top:10px">Quản lý tài khoản</button></a>
+    </div>
+    </section>
+
+    <!-- products section -->
+    @RenderBody()
+
+</body>
+</html>
