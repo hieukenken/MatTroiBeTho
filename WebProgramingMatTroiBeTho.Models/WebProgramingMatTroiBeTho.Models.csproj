@@ -55,6 +55,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Models\Account\Account.cs" />
     <Compile Include="Models\Account\AccountDB.cs" />
+    <Compile Include="Models\Account\KhachHang.cs" />
+    <Compile Include="Models\Account\KhachHangDB.cs" />
     <Compile Include="Models\BaiViet.cs" />
     <Compile Include="Models\BaiVietDB.cs" />
     <Compile Include="Models\BasicDB.cs" />

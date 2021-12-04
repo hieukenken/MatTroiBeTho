@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login - Brand</title>
-    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="~/assets/fonts/font-awesome.min.css">
@@ -29,97 +29,10 @@
 
 </head>
 
-<body class="bg-gradient-primary" style="background: url(&quot;../assets/img/1633766556048.jpg&quot;) center / cover no-repeat, rgb(185,188,195);">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="opacity: 0.80;background: rgba(11,4,1,0.93);padding: 5px 0px;transform: perspective(70px);">
-       
-        <div class="container"><a class="navbar-brand" href="/Home/Index" style="color: rgb(203,203,203);font-size: 25px;width: 185.406px;">Hiếu fun sờ tắc</a><button data-bs-toggle="collapse" data-bs-target="#navcol-1" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navcol-1">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(214,214,214);font-size: 16px;">Đồ ăn </a></li>
-            <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(214,214,214);">Sự Kiện</a></li>
-            <li class="nav-item">
-
-                @if (SessionHelperLogin.GetSession() != null)
-                {
-                    using (Html.BeginForm("HienThiHoaDon", "Home"))
-                    {
-                        <input value="@SessionHelperLogin.GetSession().UserName" type="hidden" style="width: 58px;border-radius: 14px;" name="MaKH" />
-                        <button class="btn btn-primary" type="submit" style="background: rgba(78,115,223,0);border-color: rgba(255,255,255,0);">
-                            Hóa đơn
-                        </button>
-                    }
-                }
-
-            
-
-            </li>
-        </ul>
-        <span class="navbar-text actions">
-            <a class="login" href="@Url.Action("SingUp","Login")" style="color: rgb(94,154,204);">Sign Up</a>
-            @if (SessionHelperLogin.GetSession() != null)
-            {
-                <a class="btn btn-light action-button" role="button" href="@Url.Action("Logout", "Login")">Log out</a>
-            }
-            else
-            {
-                <a class="btn btn-light action-button" role="button" href="@Url.Action("Index", "Login")"> Log In</a>
-            }
-
-        </span>
-    </div>
-</div>
-        
-        
-        
-        
-    </nav>
-
-
-
-
-
-
-
-
-
+<body class="bg-gradient-primary" style="background-color: #140c0c54; margin-top:20px">
 
     <div class="col-md-12">  @RenderBody() </div>
 
-
-
-
-
-
-
-
-    <footer class="footer-dark" style="background: rgba(21,10,6,0.91);">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3 item">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Hosting</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-md-3 item">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 item text">
-                    <h3>Company Name</h3>
-                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-                </div>
-                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-            </div>
-            <p class="copyright">Company Name © 2021</p>
-        </div>
-    </footer>
     <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/assets/js/bs-init.js"></script>
     <script src="~/assets/js/Animated-Number-element.js"></script>
@@ -127,5 +40,4 @@
     <script src="~/assets/js/Simple-Slider.js"></script>
     <script src="~/assets/js/theme.js"></script>
 </body>
-
 </html>

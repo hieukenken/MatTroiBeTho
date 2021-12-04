@@ -26,6 +26,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
           
             var resultAD = new AccountDB().LoginAdmin(ref err, accountModel.UserName, accountModel.PassWord);
             var resultUS = new AccountDB().LoginUser(ref err, accountModel.UserName, accountModel.PassWord);
+            var getKhachHang = new AccountDB().GetKhachHang(ref err, accountModel.UserName);
 
             if (resultAD && ModelState.IsValid)
             {
@@ -34,7 +35,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
             }
             else if (resultUS && ModelState.IsValid)
             {
-                SessionHelperLogin.SetSession(new UserSessionLogin() { UserName = accountModel.UserName, Type = "US" });
+                SessionHelperLogin.SetSession(new UserSessionLogin() { UserName = accountModel.UserName, Type = "US" , Address = getKhachHang.DiaChiKH});
                 return RedirectToAction("Index", "Home");
             }
             else
