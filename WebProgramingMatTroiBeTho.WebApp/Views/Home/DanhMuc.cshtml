@@ -8,15 +8,6 @@
     <div class="container">
         <div class="d-flex flex-row">
             <div class="text-muted m-2" id="res">@ViewBag.SoSanPham</div>
-            <div class="ml-auto mr-lg-4">
-                <div id="sorting" class="border rounded p-1 m-1">
-                    <span class="text-muted">Sort by</span> <select name="sort" id="sort">
-                        <option value="popularity"><b>Thấp đến cao</b></option>
-                        <option value="prcie"><b>Cao đến thấp</b></option>
-                        <option value="rating"><b>Hàng giảm giá</b></option>
-                    </select>
-                </div>
-            </div>
         </div>
         <div class="row">
             @foreach (var item in Model)
