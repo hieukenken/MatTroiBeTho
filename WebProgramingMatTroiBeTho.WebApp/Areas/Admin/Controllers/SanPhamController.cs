@@ -21,19 +21,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
         // GET: Admin/SanPham/Details/5
         
         public ActionResult Details(string id )
-        {           
-            var sanPham = new SanPhamDB().XemChiTietSP(ref err,id);
-            if (sanPham != null)
-            {
-                return View(sanPham);
-            }           
-            else
-            {
-                if (!string.IsNullOrEmpty(err))
-                    ViewBag.Err = string.Format("Lỗi: {0}", err);
-                else
-                    ViewBag.Err = "Ko xem đc";
-            }          
+        {                      
             return View();
         }
 
@@ -46,24 +34,14 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
         // POST: Admin/SanPham/Create
         [HttpPost]
         public ActionResult Create(SanPham collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-                var result = new SanPhamDB().InsertUpdateSanPham(ref err, ref rows, collection);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        {          
+            return View();          
         }
 
         // GET: Admin/SanPham/Edit/5
         public ActionResult Edit(string id)
-        {
-            var sanPham = new SanPhamDB().XemChiTietSP(ref err, id);
-            return View(sanPham);
+        {          
+            return View();
         }
 
         // POST: Admin/SanPham/Edit/5
@@ -73,7 +51,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
             try
             {
                 // TODO: Add update logic here
-                var result = new SanPhamDB().InsertUpdateSanPham(ref err, ref rows, collection);
+               
                 return RedirectToAction("Index");
             }
             catch
@@ -84,9 +62,8 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
 
         // GET: Admin/SanPham/Delete/5
         public ActionResult Delete(string id)
-        {
-            var sanPham = new SanPhamDB().XemChiTietSP(ref err, id);
-            return View(sanPham);
+        {           
+            return View();
         }
 
         // POST: Admin/SanPham/Delete/5
@@ -96,7 +73,7 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
-                var result = new SanPhamDB().DeleteSanPham(ref err, ref rows, collection);
+               
                 return RedirectToAction("Index");
             }
             catch
