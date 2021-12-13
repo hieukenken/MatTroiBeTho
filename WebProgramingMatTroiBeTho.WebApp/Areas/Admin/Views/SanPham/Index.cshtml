@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebProgramingMatTroiBeTho.Models.Models.SanPham.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table style="width: 100%" class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+           Tên
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Chi tiết
+        </th>
+        <th>
+            Đơn vị tính
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChiTietSanPham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            <img
+            border="4px"
+            width="50px"
+           src=" @Html.DisplayFor(modelItem => item.HinhAnh)"
+                 />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.MaSP  }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })
+        </td>
+    </tr>
+}
+
+</table>

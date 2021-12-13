@@ -99,7 +99,6 @@ namespace WebProgramingMatTroiBeTho.WebApp.Controllers
         }
         public ActionResult CheckOut(FormCollection form)
         {
-
             try
             {
                 Cart cart = Session["Cart"] as Cart;
