@@ -107,7 +107,7 @@
                     <div class="form-grou">
                         <label for="tea">
                             <b>
-                                @if (SessionHelperLogin.GetSession().Address != "")
+                                @if (SessionHelperLogin.GetSession().Address != ""&& SessionHelperLogin.GetSession().Address !=null)
                                 {
                                     <u>
                                         <span>

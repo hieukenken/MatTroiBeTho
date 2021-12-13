@@ -17,7 +17,7 @@
                             <h5><b>@Html.DisplayFor(model => item.TenSP)</b></h5>
                             <div class="d-flex flex-row my-2">
                                 <div class="text-muted">@Html.DisplayFor(model => item.DonGia) VND/@Html.DisplayFor(model => item.LoaiSP)</div>
-                                @if (item.SoLuong <= 0)
+                                @if (item.SoLuong < 1)
                                 {
                                     <div class="ml-auto"><span class="px-sm-1">Hết hàng</span></div>
                                 }
@@ -26,7 +26,7 @@
                                     <div class="ml-auto"><span class="px-sm-1"><span>Còn lại: <span>@Html.DisplayFor(model => item.SoLuong)</span></span></span> </div>
                                 }
                             </div>
-                            @if (item.SoLuong != 0)
+                            @if (item.SoLuong > 1)
                             {
                                 <a href="/MuaHang/ThemVaoGioHang/@item.MaSP">
                                     <button class="btn w-100 rounded my-2" type="button">Thêm vào giỏ hàng</button>
