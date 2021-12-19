@@ -7,27 +7,33 @@ using WebProgramingMatTroiBeTho.Models.Models.SanPham;
 
 namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
 {
-    public class SanPhamController : Controller
+    public class ChiTietHoaDonController : Controller
     {
-        // GET: Admin/SanPham
+        // GET: Admin/ChiTietHoaDon
         string err = string.Empty;
         int rows = 0;
-        public ActionResult Index(string  searchString)
+        public ActionResult Index()
         {
-            var sanPham = new SanPhamDB().GetSanPhamList(ref err, searchString);
-            string soluong = sanPham.Count.ToString();
-            ViewBag.TongSP = soluong;          
-            return View(sanPham);
+            var hoaDon = new OrderDB().HienThiHD_ADMIN(ref err);
+            return View(hoaDon);
         }
-
-        // GET: Admin/SanPham/Details/5
-        
-        public ActionResult Details(string id )
+        public ActionResult HoaDonThangNay()
         {
-            var sanPham = new SanPhamDB().XemChiTietSP(ref err, id);
-            if (sanPham != null)
+            var hoaDonThang = new OrderDB().HienThiHD_ADMIN_Thang(ref err);
+            return View(hoaDonThang);
+        }
+        public ActionResult HoaDonHomNay()
+        {
+            var hoaDonNow = new OrderDB().HienThiHD_ADMIN_HomNay(ref err);
+            return View(hoaDonNow);
+        }
+        // GET: Admin/ChiTietHoaDon/Details/5
+        public ActionResult Details(int id)
+        {
+            var cthd = new OrderDetailDB().ADMIN_CTHD(ref err, id);
+            if (cthd != null)
             {
-                return View(sanPham);
+                return View(cthd);
             }
             else
             {
@@ -39,20 +45,20 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
             return View();
         }
 
-        // GET: Admin/SanPham/Create
+        // GET: Admin/ChiTietHoaDon/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/SanPham/Create
+        // POST: Admin/ChiTietHoaDon/Create
         [HttpPost]
-        public ActionResult Create(SanPham collection)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                var result = new SanPhamDB().InsertUpdateSanPham(ref err, ref rows, collection);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -61,21 +67,20 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/SanPham/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Admin/ChiTietHoaDon/Edit/5
+        public ActionResult Edit(int id)
         {
-            var sanPham = new SanPhamDB().XemChiTietSP(ref err, id);
-            return View(sanPham);
+            return View();
         }
 
-        // POST: Admin/SanPham/Edit/5
+        // POST: Admin/ChiTietHoaDon/Edit/5
         [HttpPost]
-        public ActionResult Edit(string id, SanPham collection)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-                var result = new SanPhamDB().InsertUpdateSanPham(ref err, ref rows, collection);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -84,20 +89,20 @@ namespace WebProgramingMatTroiBeTho.WebApp.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/SanPham/Delete/5
-        public ActionResult Delete(string id)
-        {           
+        // GET: Admin/ChiTietHoaDon/Delete/5
+        public ActionResult Delete(int id)
+        {
             return View();
         }
 
-        // POST: Admin/SanPham/Delete/5
+        // POST: Admin/ChiTietHoaDon/Delete/5
         [HttpPost]
-        public ActionResult Delete(string id, SanPham collection)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-               
+
                 return RedirectToAction("Index");
             }
             catch

@@ -43,5 +43,25 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
             }
             return orderDetails;
         }
+        public List<OrderDetail> ADMIN_CTHD(ref string er, int id)
+        {
+            List<OrderDetail> orderDetails = new List<OrderDetail>();
+            var dataReader = data.MyExecuteReader(ref er, "NHP_ADMIN_CTHD", CommandType.StoredProcedure, new SqlParameter("@MaHD", id));
+            if (dataReader != null)
+            {
+                while (dataReader.Read())
+                {
+                    orderDetails.Add(new OrderDetail()
+                    {
+                        MaHD = int.Parse(dataReader["MaHD"].ToString()),
+                        TenSP = dataReader["TenSP"].ToString(),
+                        SoLuong = int.Parse(dataReader["SoLuong"].ToString()),
+                        GiaTien = double.Parse(dataReader["DonGia"].ToString()),
+                        LoaiHang = dataReader["LoaiHang"].ToString()
+                    });
+                }
+            }
+            return orderDetails;
+        }
     }
 }

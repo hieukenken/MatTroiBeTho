@@ -96,7 +96,11 @@
     <Content Include="assets\css\Highlight-Phone.css" />
     <Content Include="assets\css\Login-Form-Dark.css" />
     <Content Include="assets\css\Ludens---1-Index-Table-with-Search--Sort-Filters-v20.css" />
+    <Content Include="assets\css\material-dashboard.css" />
+    <Content Include="assets\css\material-dashboard.min.css" />
     <Content Include="assets\css\Navigation-with-Button.css" />
+    <Content Include="assets\css\nucleo-icons.css" />
+    <Content Include="assets\css\nucleo-svg.css" />
     <Content Include="assets\css\Registration-Form-with-Photo.css" />
     <Content Include="assets\css\Search-Input-responsive.css" />
     <Content Include="assets\css\Simple-Slider.css" />
@@ -146,7 +150,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Commons\SessionHelper.cs" />
     <Compile Include="Areas\Admin\Commons\UserSession.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChiTietHoaDonController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Commons\SessionHelperLogin.cs" />
     <Compile Include="Commons\UserSessionLogin.cs" />
@@ -192,6 +198,13 @@
     <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Delete.cshtml" />
+    <Content Include="assets\css\material-dashboard.css.map" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDon\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDon\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDon\HoaDonThangNay.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDon\HoaDonHomNay.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

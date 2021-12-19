@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebProgramingMatTroiBeTho.Models.Models.SanPham.SanPham>
+﻿@model IEnumerable<WebProgramingMatTroiBeTho.Models.Models.SanPham.Order>
 
 @{
     ViewBag.Title = "Sản phẩm";
@@ -48,14 +48,14 @@
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
 
-                <span class="ms-1 font-weight-bold text-white">Quản lí</span>
+                <span class="ms-1 font-weight-bold text-white">Quản lý</span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="~/ADMIN/Home/Index">
+                    <a class="nav-link text-white  " href="~/ADMIN/Home/Index">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -63,7 +63,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white  active bg-gradient-primary " href="~/ADMIN/SanPham/Index">
+                    <a class="nav-link text-white  " href="~/ADMIN/SanPham/Index">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">table_view</i>
                         </div>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="~/ADMIN/ChiTietHoaDon/Index">
+                    <a class="nav-link text-white active bg-gradient-primary" href="~/ADMIN/ChiTietHoaDon/Index">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">receipt_long</i>
                         </div>
@@ -121,20 +121,15 @@
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Sản phẩm</li>
+
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tổng hóa đơn</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0"></h6>
-                    <p>
-                        <a>
-                            @Html.ActionLink("Thêm ", "Create")
-                        </a>
-                    </p>
-                    <div id="PlaceHolderHere"></div>
-                    <button class="btn btn-primary" asp-controller="SanPham" asp-action="Create"
-                            data-toggle="ajax-modal" data-target="#add-contact" id="addBtn">
-                        Add new Positions
-                    </button>
+                    <a>
+                        @Html.ActionLink("Xem hóa đơn tháng này ", "HoaDonThangNay")
+                    </a>
+                    <a>
+                        @Html.ActionLink("Xem hóa đơn hôm nay ", "HoaDonHomNay")
+                    </a>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -248,39 +243,21 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Danh sách sản phẩm  /  Tổng: @ViewBag.TongSP</h6>
+                                <h6 class="text-white text-capitalize ps-3">Danh sách hóa đơn</h6>
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
-                                <table width: 100%; class="table align-items-center mb-0">
+                                <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th>
-                                                ID
-                                            </th>
-                                            <th>
-                                                Tên
-                                            </th>
-                                            <th>
-                                                Giá
-                                            </th>
-                                            <th>
-                                                Số Lượng
-                                            </th>
-                                            <th>
-                                                Chi tiết
-                                            </th>
-                                            <th>
-                                                ĐVT
-                                            </th>
-                                            <th>
-                                                Trạng thái
-                                            </th>
-                                            <th>
-                                                Hình ảnh
-                                            </th>
-                                            <th></th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã</th>
+
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Điện thoại</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Thời gian</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Tổng tiền</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Địa chỉ</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Tình trạng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -288,35 +265,28 @@
                                         {
                                             <tr>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.MaSP)
+                                                    @Html.DisplayFor(modelItem => item.MaHD)
                                                 </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.TenSP)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.DonGia)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.SoLuong)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.ChiTietSanPham)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.LoaiSP)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.TinhTrang)
-                                                </td>
-                                                <td>
-                                                    <img border="4px"
-                                                         width="50px"
-                                                         src=" @Html.DisplayFor(modelItem => item.HinhAnh)" />
-                                                </td>
-                                                <td>
-                                                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaSP }) |
-                                                    @Html.ActionLink("Cập nhật", "Edit", new { id = item.MaSP }) |
 
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SoDienThoaiNhanHang)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ThoiGianDatHang)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TongTien)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.DiaChiNhanHang)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.GiaoHang)
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Details", "Details", new { id = item.MaHD }) |
                                                 </td>
                                             </tr>
                                         }
@@ -447,7 +417,7 @@
             var options = {
                 damping: '0.5'
             }
-            Scrollbar.init(document.querySelector('#sidenav-scrUrlllbar'), options);
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
     <!-- Github buttons -->

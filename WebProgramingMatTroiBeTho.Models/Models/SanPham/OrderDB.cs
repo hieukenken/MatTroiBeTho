@@ -52,5 +52,95 @@ namespace WebProgramingMatTroiBeTho.Models.Models.SanPham
             }
             return lisHD;
         }
+        //Phuc Hóa đơn
+        public List<Order> HienThiHD_ADMIN(ref string err)
+        {
+            List<Order> lisHD = new List<Order>();
+            var dataReader = data.MyExecuteReader(ref err, "NHP_Admin_XemHoaDon", CommandType.StoredProcedure, null);
+            if (dataReader != null)
+            {
+                while (dataReader.Read())
+                {
+                    lisHD.Add(
+                    new Order()
+                    {
+                        MaHD = int.Parse(dataReader["MaHD"].ToString()),
+                        ThoiGianDatHang = DateTime.Parse(dataReader["NgayLap"].ToString()),
+                        SoDienThoaiNhanHang = dataReader["SDTdathang"].ToString(),
+                        DiaChiNhanHang = dataReader["DiaChiNhanHang"].ToString(),
+                        TongTien = double.Parse(dataReader["TongTien"].ToString()),
+                        GiaoHang = bool.Parse(dataReader["GiaoHang"].ToString())
+                    });
+
+                }
+            }
+            return lisHD;
+        }
+        public List<Order> HienThiHD_ADMIN_Thang(ref string err)
+        {
+            List<Order> lisHD = new List<Order>();
+            var dataReader = data.MyExecuteReader(ref err, "NHP_ADMIN_HD_THang", CommandType.StoredProcedure, null);
+            if (dataReader != null)
+            {
+                while (dataReader.Read())
+                {
+                    lisHD.Add(
+                    new Order()
+                    {
+                        MaHD = int.Parse(dataReader["MaHD"].ToString()),
+                        ThoiGianDatHang = DateTime.Parse(dataReader["NgayLap"].ToString()),
+                        SoDienThoaiNhanHang = dataReader["SDTdathang"].ToString(),
+                        DiaChiNhanHang = dataReader["DiaChiNhanHang"].ToString(),
+                        TongTien = double.Parse(dataReader["TongTien"].ToString()),
+                        GiaoHang = bool.Parse(dataReader["GiaoHang"].ToString())
+                    });
+
+                }
+            }
+            return lisHD;
+        }
+
+        public List<Order> HienThiHD_ADMIN_HomNay(ref string err)
+        {
+            List<Order> lisHD = new List<Order>();
+            var dataReader = data.MyExecuteReader(ref err, "NHP_ADMIN_HD_HomNay", CommandType.StoredProcedure, null);
+            if (dataReader != null)
+            {
+                while (dataReader.Read())
+                {
+                    lisHD.Add(
+                    new Order()
+                    {
+                        MaHD = int.Parse(dataReader["MaHD"].ToString()),
+                        ThoiGianDatHang = DateTime.Parse(dataReader["NgayLap"].ToString()),
+                        SoDienThoaiNhanHang = dataReader["SDTdathang"].ToString(),
+                        DiaChiNhanHang = dataReader["DiaChiNhanHang"].ToString(),
+                        TongTien = double.Parse(dataReader["TongTien"].ToString()),
+                        GiaoHang = bool.Parse(dataReader["GiaoHang"].ToString())
+                    });
+
+                }
+            }
+            return lisHD;
+        }
+        public List<Order> ThuNhap_ADMIN_Thang(ref string err)
+        {
+            List<Order> lisHD = new List<Order>();
+            var dataReader = data.MyExecuteReader(ref err, "NHP_ADMIN_HD_THang", CommandType.StoredProcedure, null);
+            if (dataReader != null)
+            {
+                while (dataReader.Read())
+                {
+                    lisHD.Add(
+                    new Order()
+                    {
+                        TongTien = double.Parse(dataReader["TongTien"].ToString()),
+                    });
+
+                }
+            }
+            return lisHD;
+        }
+
     }
 }

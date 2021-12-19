@@ -60,6 +60,8 @@
     <Compile Include="Models\SanPham\OrderDetailDB.cs" />
     <Compile Include="Models\SanPham\SanPham.cs" />
     <Compile Include="Models\SanPham\SanPhamDB.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
